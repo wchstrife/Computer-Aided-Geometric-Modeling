@@ -30,7 +30,7 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
     <UseOfMfc>Static</UseOfMfc>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -187,9 +187,11 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CP_Polygon.h" />
     <ClInclude Include="CP_PolygonPlatform.h" />
     <ClInclude Include="CP_PolygonPlatformDoc.h" />
     <ClInclude Include="CP_PolygonPlatformView.h" />
+    <ClInclude Include="CP_Triangle.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="pch.h" />
@@ -197,9 +199,11 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CP_Polygon.cpp" />
     <ClCompile Include="CP_PolygonPlatform.cpp" />
     <ClCompile Include="CP_PolygonPlatformDoc.cpp" />
     <ClCompile Include="CP_PolygonPlatformView.cpp" />
+    <ClCompile Include="CP_Triangle.cpp" />
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
