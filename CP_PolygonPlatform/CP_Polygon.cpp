@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include "pch.h"
 #include "CP_Polygon.h"
 void gb_distanceMinPointLoop(double& d, int& idRegion, int& idLoop,
 	CP_Point& pt, CP_Polygon& pn)
