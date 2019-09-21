@@ -15,6 +15,7 @@
 #include "pch.h"
 #include "framework.h"
 #include "MainFrm.h"
+
 // SHARED_HANDLERS 可以在实现预览、缩略图和搜索筛选器句柄的
 // ATL 项目中进行定义，并允许与该项目共享文档代码。
 #ifndef SHARED_HANDLERS
@@ -612,7 +613,11 @@ void CCPPolygonPlatformView::OnUpdateComboAorb(CCmdUI* pCmdUI)
 {
 	// TODO: 在此添加命令更新用户界面处理程序代码
 	 // TODO: 在此添加命令更新用户界面处理程序代码
-	CMFCRibbonBar* robbon_bar = ((CFrameWndEx*)AfxGetMainWnd())->GetRibbonBar();
+	CMainFrame* pMainFrame = (CMainFrame*)AfxGetApp()->m_pMainWnd;
+	if (pMainFrame == NULL)
+		return ;
+	CMFCRibbonBar * robbon_bar = pMainFrame->GetRibbonBar();
+	// CMFCRibbonBar* robbon_bar = ((CFrameWndEx*)AfxGetMainWnd())->GetRibbonBar();
 	if (robbon_bar == NULL)
 		return;
 	CMFCRibbonComboBox* pbox = (CMFCRibbonComboBox*)robbon_bar->FindByID(ID_COMBO_AorB); // 获取编辑框句柄
@@ -629,7 +634,11 @@ void CCPPolygonPlatformView::OnComboAorb()
 	ASSERT_VALID(pDoc);
 	if (!pDoc)
 		return;
-	CMFCRibbonBar* robbon_bar = ((CFrameWndEx*)AfxGetMainWnd())->GetRibbonBar();
+	CMainFrame* pMainFrame = (CMainFrame*)AfxGetApp()->m_pMainWnd;
+	if (pMainFrame == NULL)
+		return ;
+	CMFCRibbonBar * robbon_bar = pMainFrame->GetRibbonBar();
+	// CMFCRibbonBar* robbon_bar = ((CFrameWndEx*)AfxGetMainWnd())->GetRibbonBar();
 	if (robbon_bar == NULL)
 		return;
 	CMFCRibbonComboBox* pbox = (CMFCRibbonComboBox*)robbon_bar->FindByID(ID_COMBO_AorB); // 获取编辑框句柄
@@ -655,7 +664,11 @@ void CCPPolygonPlatformView::OnEdgeNumber()
 	if (!pDoc)
 		return;
 	CString string;
-	CMFCRibbonBar* robbon_bar = ((CFrameWndEx*)AfxGetMainWnd())->GetRibbonBar(); //获取Ribbon bar 句柄
+	CMainFrame* pMainFrame = (CMainFrame*)AfxGetApp()->m_pMainWnd;
+	if (pMainFrame == NULL)
+		return ;
+	CMFCRibbonBar * robbon_bar = pMainFrame->GetRibbonBar();
+	// CMFCRibbonBar* robbon_bar = ((CFrameWndEx*)AfxGetMainWnd())->GetRibbonBar(); //获取Ribbon bar 句柄
 	if (robbon_bar == NULL)
 		return;
 	CMFCRibbonEdit* slider = (CMFCRibbonEdit*)robbon_bar->FindByID(ID_EDGE_NUMBER); // 获取编辑框句柄
@@ -685,7 +698,11 @@ void CCPPolygonPlatformView::OnTolerance()
 	if (!pDoc)
 		return;
 	CString string;
-	CMFCRibbonBar* robbon_bar = ((CFrameWndEx*)AfxGetMainWnd())->GetRibbonBar(); //获取Ribbon bar 句柄
+	CMainFrame* pMainFrame = (CMainFrame*)AfxGetApp()->m_pMainWnd;
+	if (pMainFrame == NULL)
+		return ;
+	CMFCRibbonBar * robbon_bar = pMainFrame->GetRibbonBar();
+	// CMFCRibbonBar* robbon_bar = ((CFrameWndEx*)AfxGetMainWnd())->GetRibbonBar(); //获取Ribbon bar 句柄
 	if (robbon_bar == NULL)
 		return;
 	CMFCRibbonEdit* slider = (CMFCRibbonEdit*)robbon_bar->FindByID(ID_TOLERANCE); // 获取编辑框句柄

@@ -25,6 +25,8 @@
 #include <propkey.h>
 #include <sstream>
 #include <string>
+#include "MainFrm.h"
+#include "MainFrm.h"
 
 
 #ifdef _DEBUG
@@ -89,7 +91,12 @@ BOOL CCPPolygonPlatformDoc::OnNewDocument()
 	// (SDI 文档将重用该文档)
 	mb_initData();
 	CString string;
-	CMFCRibbonBar* robbon_bar = ((CFrameWndEx*)AfxGetMainWnd())->GetRibbonBar(); //获取Ribbon bar 句柄
+	CMainFrame* pMainFrame = (CMainFrame*)AfxGetApp()->m_pMainWnd;
+	if (pMainFrame == NULL)
+		return TRUE;
+	// CMFCRibbonBar * robbon_bar = pMainFrame->GetRibbonBar();
+	CMFCRibbonBar * robbon_bar = pMainFrame->GetRibbonBar();
+	// CMFCRibbonBar* robbon_bar = ((CFrameWndEx*)AfxGetMainWnd())->GetRibbonBar(); //获取Ribbon bar 句柄
 	if (robbon_bar == NULL)
 		return TRUE;
 	CMFCRibbonEdit* slider = (CMFCRibbonEdit*)robbon_bar->FindByID(ID_TOLERANCE); // 获取编辑框句柄
@@ -190,7 +197,11 @@ void CCPPolygonPlatformDoc::Serialize(CArchive& ar)
 			}
 		} // while结束
 		CString string;
-		CMFCRibbonBar* robbon_bar = ((CFrameWndEx*)AfxGetMainWnd())->GetRibbonBar(); //获取Ribbon bar 句柄
+		CMainFrame* pMainFrame = (CMainFrame*)AfxGetApp()->m_pMainWnd;
+		if (pMainFrame == NULL)
+			return ;
+		CMFCRibbonBar * robbon_bar = pMainFrame->GetRibbonBar();
+		// CMFCRibbonBar* robbon_bar = ((CFrameWndEx*)AfxGetMainWnd())->GetRibbonBar(); //获取Ribbon bar 句柄
 		if (robbon_bar == NULL)
 			return;
 		CMFCRibbonEdit* slider = (CMFCRibbonEdit*)robbon_bar->FindByID(ID_TOLERANCE); // 获取编辑框句柄
