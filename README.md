@@ -1,23 +1,23 @@
-# THU-�������������������ҵ
+# THU-计算机辅助几何造型作业
 
-�廪��ѧ�������������������ҵ
+清华大学计算机辅助几何造型作业
 
 - C++ Project
-- ��Ŀ��ַ��[Computer-Aided-Geometric-Modeling](https://github.com/wchstrife/Computer-Aided-Geometric-Modeling)
+- 项目地址[Computer-Aided-Geometric-Modeling](https://github.com/wchstrife/Computer-Aided-Geometric-Modeling)
 - Author: wchstrife
 
 ## 1. Homework-1 MFC
 
-### 1.1 ��������
+### 1.1 开发环境
 
 1. VS2019
 2. MFC
 3. C++ 14
 
-### 1.2 ��װ
+### 1.2 安装
 
-git clone �����أ����뼴��
+``git clone`` 到本地，编译即可
 
 ### 1.3 Ч����ʾ
 
-![MFC1](/img/ʾ��ͼ.png)
+![MFC1](/img/hw1.png)
