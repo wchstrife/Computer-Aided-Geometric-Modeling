@@ -1,20 +1,23 @@
-# THU-¼ÆËã»ú¸¨Öú¼¸ºÎÔìÐÍ×÷Òµ
+# THU-ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµ
 
-Çå»ª´óÑ§¼ÆËã»ú¸¨Öú¼¸ºÎÔìÐÍ×÷Òµ
+ï¿½å»ªï¿½ï¿½Ñ§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµ
 
- - C++ Project
- - ÏîÄ¿µØÖ·£º[Computer-Aided-Geometric-Modeling](https://github.com/wchstrife/Computer-Aided-Geometric-Modeling)
- - Author: wchstrife
+- C++ Project
+- ï¿½ï¿½Ä¿ï¿½ï¿½Ö·ï¿½ï¿½[Computer-Aided-Geometric-Modeling](https://github.com/wchstrife/Computer-Aided-Geometric-Modeling)
+- Author: wchstrife
 
 ## 1. Homework-1 MFC
 
-### 1.1 ¿ª·¢»·¾³
+### 1.1 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+
 1. VS2019
 2. MFC
 3. C++ 14
 
-### 1.2 °²×°
-git clone µ½±¾µØ£¬±àÒë¼´¿É
+### 1.2 ï¿½ï¿½×°
 
-### 1.3 Ð§¹ûÑÝÊ¾
-![MFC1](/img/Ê¾ÀýÍ¼.png)
+git clone ï¿½ï¿½ï¿½ï¿½ï¿½Ø£ï¿½ï¿½ï¿½ï¿½ë¼´ï¿½ï¿½
+
+### 1.3 Ð§ï¿½ï¿½ï¿½ï¿½Ê¾
+
+![MFC1](/img/Ê¾ï¿½ï¿½Í¼.png)
