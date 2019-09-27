@@ -68,6 +68,7 @@
     <None Include="res\OpenGLPlat.rc2">
       <Filter>资源文件</Filter>
     </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="OpenGLPlat.rc">
