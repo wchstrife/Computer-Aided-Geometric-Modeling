@@ -109,6 +109,8 @@ void COpenGLPlatView::OnDraw(CDC* pDC)
 	// ////////////////////////////////////////////////////////////////
 	const GLfloat Pi = 3.1415926536f;	
 	const GLfloat m = 3;		// 正五角星的边长
+
+	// 计算五个顶点的坐标
 	GLfloat a = m / sqrt(2 - 2 * cos(72 * Pi / 180));
 	GLfloat bx = a * cos(18 * Pi / 180);
 	GLfloat by = a * sin(18 * Pi / 180);
@@ -122,7 +124,7 @@ void COpenGLPlatView::OnDraw(CDC* pDC)
 		PointE[2] = { -bx, by };
 	glClear(GL_COLOR_BUFFER_BIT);
 
-	//闭合的线段
+	// 绘制闭合的线段
 	glBegin(GL_LINE_LOOP);
 	glVertex2fv(PointA);
 	glVertex2fv(PointC);
@@ -135,7 +137,6 @@ void COpenGLPlatView::OnDraw(CDC* pDC)
 
 	// 绘制正六边形
 	// ////////////////////////////////////////////////////////////////
-	int n = 1000;
 	glBegin(GL_POLYGON);
 	glColor3f(1.0, 0.0, 0.0);
 	for (int i = 1; i <= 6; i++)
