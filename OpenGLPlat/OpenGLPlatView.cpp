@@ -4,6 +4,7 @@
 
 #include "pch.h"
 #include "framework.h"
+#include "math.h"
 
 // SHARED_HANDLERS 可以在实现预览、缩略图和搜索筛选器句柄的
 // ATL 项目中进行定义，并允许与该项目共享文档代码。
@@ -79,10 +80,11 @@ void COpenGLPlatView::OnDraw(CDC* pDC)
 	// New codes begin:
 	wglMakeCurrent(pDC->m_hDC, m_hRC);
 
-	glClearColor(0, 1, 1, 1);
+	glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
 
 	glLoadIdentity();
+	/*
 	int n = 9;
 	double a = 4;
 	double s = 0;
@@ -90,6 +92,8 @@ void COpenGLPlatView::OnDraw(CDC* pDC)
 	double t = -4;
 	double dt = -2 * t / (n - 1);
 	double x, y;
+
+	
 	glBegin(GL_POLYGON);
 	for (int i = 0; i < n; i++, s += ds, t += dt)
 	{
@@ -99,6 +103,48 @@ void COpenGLPlatView::OnDraw(CDC* pDC)
 		glVertex3d(x * a, y * a, 0);
 	} // for结构结束
 	glEnd();
+	*/
+
+	// 绘制五角星
+	// ////////////////////////////////////////////////////////////////
+	const GLfloat Pi = 3.1415926536f;	
+	const GLfloat m = 3;		// 正五角星的边长
+	GLfloat a = m / sqrt(2 - 2 * cos(72 * Pi / 180));
+	GLfloat bx = a * cos(18 * Pi / 180);
+	GLfloat by = a * sin(18 * Pi / 180);
+	GLfloat cx = a * sin(36 * Pi / 180);
+	GLfloat cy = -a * cos(36 * Pi / 180);
+	GLfloat
+		PointA[2] = { 0, a },
+		PointB[2] = { bx, by },
+		PointC[2] = { cx, cy },
+		PointD[2] = { -cx, cy },
+		PointE[2] = { -bx, by };
+	glClear(GL_COLOR_BUFFER_BIT);
+
+	//闭合的线段
+	glBegin(GL_LINE_LOOP);
+	glVertex2fv(PointA);
+	glVertex2fv(PointC);
+	glVertex2fv(PointE);
+	glVertex2fv(PointB);
+	glVertex2fv(PointD);
+	glColor3d(1, 0, 1);
+	glEnd();
+	// ////////////////////////////////////////////////////////////////
+
+	// 绘制正六边形
+	// ////////////////////////////////////////////////////////////////
+	int n = 1000;
+	glBegin(GL_POLYGON);
+	glColor3f(1.0, 0.0, 0.0);
+	for (int i = 1; i <= 6; i++)
+	{
+		glVertex2f(2.0f * cos(2 * (Pi / 6) * i) + 5.0f, 2.0f * sin(2 * (Pi / 6) * i));
+	}
+	glEnd();
+	// ////////////////////////////////////////////////////////////////
+
 	SwapBuffers(pDC->m_hDC);
 	wglMakeCurrent(NULL, NULL);
 	// New codes end.
