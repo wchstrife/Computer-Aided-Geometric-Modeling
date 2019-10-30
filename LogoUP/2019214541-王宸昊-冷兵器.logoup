@@ -1,0 +1,22 @@
+// 画杆
+COLOR black
+CIRC 1
+FILL
+BODY
+  UP 75
+DONE
+
+VAR iter = 0   // 控制颜色
+
+// 画圆锥旋转
+REPEAT 16
+  REPEAT 10
+    CONE 10, 15
+    PITCH 60
+    iter = iter + 30
+    COLOR HSV(iter/100, 10, 100)
+  END
+  YAW 40
+  PITCH 40
+  
+END
