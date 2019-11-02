@@ -30,11 +30,11 @@ public class Solution {
                 String[] data = lineTxt.split(" ");
                 int start_x = Integer.parseInt(data[0]);
                 int start_y = Integer.parseInt(data[1]);
-                int end_x = Integer.parseInt(data[0]);
-                int end_y = Integer.parseInt(data[1]);
-                int R = Integer.parseInt(data[2]);
-                int G = Integer.parseInt(data[3]);
-                int B = Integer.parseInt(data[4]);
+                int end_x = Integer.parseInt(data[2]);
+                int end_y = Integer.parseInt(data[3]);
+                int R = Integer.parseInt(data[4]);
+                int G = Integer.parseInt(data[5]);
+                int B = Integer.parseInt(data[6]);
                 Line line = new Line(start_x, start_y,end_x,end_y, R, G, B);
                 lines.add(line);
             }
@@ -45,42 +45,53 @@ public class Solution {
         return lines;
     }
 
-    /*
-    在PDF上画直线
+    /**
+     *
+     * @param lines -绘制的线段
+     * @param pdfPath -pdf路径
+     * @param pageNum -绘制的页码
+     * @throws FileNotFoundException
+     * @throws IOException
      */
     public static void drawLine (List<Line> lines, String pdfPath, int pageNum) throws FileNotFoundException, IOException{
         PdfDocument doc = new PdfDocument();
         doc.loadFromFile(pdfPath);
         PdfPageBase page = doc.getPages().get(pageNum);
+        System.out.println("Width: " + page.getSize().getWidth() + " Height: " + page.getSize().getHeight());
         if (page == null){
             System.out.println("page error!");
             return ;
         }
-//        // 绘制直线
-//        for (Line line : lines) {
-//            PdfPen pen = new PdfPen(new PdfRGBColor(line.getR(), line.getG(), line.getB()), 0.1);
-//            PointF pStart=new PointF(line.getStart_x(), line.getStart_y());
-//            PointF pEnd=new PointF(line.end_x, line.getEnd_y());
-//            page.getCanvas().drawLine(pen, pStart, pEnd);
-//        }
+        // 绘制直线
+        for (Line line : lines) {
+            PdfPen pen = new PdfPen(new PdfRGBColor(line.getR(), line.getG(), line.getB()), 1.5);
+            Point pStart = new Point(line.getStart_x(), line.getStart_y());
+            Point pEnd = new Point(line.getEnd_x(), line.getEnd_y());
+            page.getCanvas().drawLine(pen, pStart, pEnd);
+        }
 
-        //绘制扇形
-        float startAngle = 0;
-        float sweepAngle = 270;
-        PdfPen pen =new PdfPen(new PdfRGBColor(Color.black),0.1);
-        Rectangle2D.Float rect4= new Rectangle2D.Float(70, 110, 50, 50);
-        page.getCanvas().drawPie(pen, rect4, startAngle, sweepAngle);
-
+//        //绘制扇形
+//        float startAngle = 0;
+//        float sweepAngle = 270;
+//        PdfPen pen =new PdfPen(new PdfRGBColor(Color.black),0.1);
+//        Rectangle2D.Float rect4= new Rectangle2D.Float(70, 110, 50, 50);
+//        page.getCanvas().drawPie(pen, rect4, startAngle, sweepAngle);
+//
         doc.saveToFile("done.pdf", FileFormat.PDF);
     }
 
     public static void main(String[] args) {
-        String filepath = Solution.class.getResource("data.txt").getPath();     // 注意要获取编译后的data路径
-        System.out.println(filepath);
+        String filepath = "data.txt";     // 注意要获取编译后的data路径
         String pdfpath = "target.pdf";
-        System.out.println(pdfpath);
 
         List<Line> lines = readFile(filepath);
+        System.out.println("==================data========================");
+        for (Line line : lines) {
+            System.out.println(line.getStart_x() + " " + line.getStart_y() + " " + line.getEnd_x() + " " + line.getEnd_y());
+        }
+        System.out.println("=============================================");
+
+
         try{
             drawLine(lines, pdfpath, 1);
         }catch (Exception e){
